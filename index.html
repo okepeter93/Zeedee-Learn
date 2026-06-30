@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zeedee Learn — Learn from where you come from</title>
+  <title>Zidi Learn — Expert tutors for Yoruba, Igbo, and more</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -660,6 +660,19 @@
     .price-cta { display: block; width: 100%; text-align: center; }
     .price-note { margin-top: 1.25rem; font-size: 0.82rem; color: var(--muted); }
 
+    /* Currency toggle */
+    .currency-toggle {
+      display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;
+    }
+    .cur-btn {
+      padding: 0.4rem 1rem; border-radius: 2rem; border: 1.5px solid var(--gold);
+      background: transparent; color: var(--navy); font-size: 0.85rem;
+      font-family: var(--font-body); font-weight: 600; cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .cur-btn:hover { background: var(--gold); color: #fff; }
+    .cur-btn.active { background: var(--gold); color: #fff; }
+
     /* ===== FORM ===== */
     .form-bg { background: var(--ivory-dark); }
 
@@ -714,6 +727,7 @@
     .choice-grid { display: grid; gap: 0.75rem; margin-bottom: 1.5rem; }
     .choice-grid-2 { grid-template-columns: 1fr 1fr; }
     .choice-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .choice-grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
     .choice-grid-1 { grid-template-columns: 1fr; }
 
     .choice-btn {
@@ -834,6 +848,7 @@
       .fg-row { grid-template-columns: 1fr; }
       .choice-grid-2 { grid-template-columns: 1fr; }
       .choice-grid-3 { grid-template-columns: 1fr 1fr; }
+      .choice-grid-4 { grid-template-columns: 1fr 1fr; }
       .form-box { padding: 1.75rem; }
     }
 
@@ -988,21 +1003,19 @@
 <div class="ticker-bar" aria-hidden="true">
   <div class="ticker-track">
     <span>Yoruba · Igbo · Piano · African Dishes · Chess · and more coming soon</span>
-    <span>Vetted native-speaker tutors, matched by hand</span>
+    <span>One-on-one online sessions with expert tutors</span>
     <span>Sessions via Zoom or Google Meet · Your timezone, your schedule</span>
-    <span>Heritage learning for diaspora families in UK, Canada &amp; US</span>
-    <span>Are you a tutor? Join our growing team</span>
+    <span>Zidi Learn · Fill the form and we'll be in touch within 24 hours</span>
     <span>Yoruba · Igbo · Piano · African Dishes · Chess · and more coming soon</span>
-    <span>Vetted native-speaker tutors, matched by hand</span>
+    <span>One-on-one online sessions with expert tutors</span>
     <span>Sessions via Zoom or Google Meet · Your timezone, your schedule</span>
-    <span>Heritage learning for diaspora families in UK, Canada &amp; US</span>
-    <span>Are you a tutor? Join our growing team</span>
+    <span>Zidi Learn · Fill the form and we'll be in touch within 24 hours</span>
   </div>
 </div>
 
 <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
 <nav>
-  <div class="nav-logo">Zeedee <span>Learn</span></div>
+  <div class="nav-logo">Zidi <span>Learn</span></div>
   <div class="nav-links">
     <a href="#subjects">Subjects</a>
     <a href="#pricing">Pricing</a>
@@ -1020,7 +1033,7 @@
     </div>
   </div>
   <div style="display:flex;gap:0.75rem;align-items:center;">
-    <a href="mailto:hello@zeedeelearn.com" class="btn btn-gold">Be a tutor</a>
+    <a href="#enrol" class="btn btn-gold">Find a tutor</a>
   </div>
 </nav>
 
@@ -1030,25 +1043,14 @@
   <div class="hero-stripe" aria-hidden="true"></div>
 
   <div class="hero-inner">
-    <h1>Teach them where they <em>come from.</em></h1>
+    <h1>Expert tutors for Yoruba, Igbo, <em>and more.</em></h1>
 
     <p class="hero-sub">
-      One-to-one sessions with vetted tutors — Yoruba, Igbo, and more.
+      One-on-one online sessions. Fill the form and we'll match you with the right tutor within 24 hours.
     </p>
 
     <div class="hero-ctas">
       <a href="#subjects" class="btn btn-gold btn-lg">Browse subjects</a>
-    </div>
-
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-label">Session length</div>
-        <div class="hero-stat-num">30<span>min</span></div>
-      </div>
-      <div>
-        <div class="hero-stat-label">Sessions per week</div>
-        <div class="hero-stat-num">1<span>–2</span></div>
-      </div>
     </div>
   </div>
 </section>
@@ -1060,7 +1062,7 @@
 <section class="section-pad" id="subjects">
   <div class="container">
     <span class="eyebrow">What you can learn</span>
-    <h2 class="section-heading">Start with your roots.<br>Go wherever curiosity takes you.</h2>
+    <h2 class="section-heading">Choose a subject.<br>We'll find your tutor.</h2>
     <p class="section-body">We're starting with heritage languages. More subjects are on the way.</p>
 
     <div class="subjects-grid">
@@ -1069,14 +1071,21 @@
         <span class="sbadge sbadge-live">Available now</span>
         <span class="subject-emoji">🗣️</span>
         <h3>Yoruba</h3>
-        <p class="subject-desc">One of the most widely spoken languages in Africa. Connect your child — or yourself — to Southwest Nigeria, Benin, and Yoruba culture across the diaspora.</p>
+        <p class="subject-desc">One of the most widely spoken languages in Africa, with over 45 million native speakers.</p>
       </div>
 
       <div class="subject-card live">
         <span class="sbadge sbadge-live">Available now</span>
         <span class="subject-emoji">💬</span>
         <h3>Igbo</h3>
-        <p class="subject-desc">Spoken by 44 million people and rich in proverbs and oral tradition. Learn the language and you learn how your ancestors thought. Now available online.</p>
+        <p class="subject-desc">One of Nigeria's major languages, with speakers across Southeast Nigeria.</p>
+      </div>
+
+      <div class="subject-card soon">
+        <span class="sbadge sbadge-soon">Coming soon</span>
+        <span class="subject-emoji">🌍</span>
+        <h3>More languages</h3>
+        <p class="subject-desc">Hausa, French, Pidgin, and others — based on what learners say they need.</p>
       </div>
 
       <div class="subject-card soon">
@@ -1090,21 +1099,14 @@
         <span class="sbadge sbadge-soon">Coming soon</span>
         <span class="subject-emoji">🎹</span>
         <h3>Piano</h3>
-        <p class="subject-desc">Classical and contemporary piano lessons for all levels — from first chords to confident performance, with qualified teachers.</p>
+        <p class="subject-desc">Classical and contemporary piano lessons for all levels.</p>
       </div>
 
       <div class="subject-card soon">
         <span class="sbadge sbadge-soon">Coming soon</span>
         <span class="subject-emoji">🍲</span>
         <h3>African Dishes</h3>
-        <p class="subject-desc">Learn to cook jollof, egusi, pounded yam, and more — traditional recipes passed down properly, with the stories and techniques behind them.</p>
-      </div>
-
-      <div class="subject-card soon">
-        <span class="sbadge sbadge-soon">Coming soon</span>
-        <span class="subject-emoji">🌍</span>
-        <h3>More languages</h3>
-        <p class="subject-desc">Hausa, French, Pidgin, and others — based on what the community says it needs.</p>
+        <p class="subject-desc">Learn to cook jollof, egusi, pounded yam, and more.</p>
       </div>
 
     </div>
@@ -1118,53 +1120,50 @@
     <span class="eyebrow">Pricing</span>
     <p class="section-body">One flat monthly rate covers your sessions, tutor matching, scheduling, and ongoing support. Cancel anytime.</p>
 
+    <div class="currency-toggle" id="currencyToggle">
+      <button class="cur-btn active" data-cur="NGN" onclick="setCurrency('NGN',this)">₦ NGN</button>
+      <button class="cur-btn" data-cur="USD" onclick="setCurrency('USD',this)">$ USD</button>
+      <button class="cur-btn" data-cur="GBP" onclick="setCurrency('GBP',this)">£ GBP</button>
+      <button class="cur-btn" data-cur="CAD" onclick="setCurrency('CAD',this)">$ CAD</button>
+    </div>
+
     <div class="pricing-row">
 
       <!-- Private · Once -->
       <div class="price-card">
         <div class="price-card-header hdr-starter">
           <div class="price-card-type">Private Classes · Online</div>
-          <div class="price-card-name">Once Per Week</div>
         </div>
         <div class="price-card-body">
           <div class="price-freq">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Once per week
           </div>
-          <div class="price-num">₦36,000</div>
+          <div class="price-num" data-ngn="36000">₦36,000</div>
           <div class="price-cadence">total per month</div>
           <ul class="price-features">
-            <li>4 sessions/month (30 min each)</li>
-            <li>Hand-picked tutor match</li>
-            <li>WhatsApp support</li>
-            <li>Replacement guarantee</li>
+            <li>4 sessions/month</li>
           </ul>
-          <a href="mailto:hello@zeedeelearn.com" class="btn btn-dark price-cta">Enquire Now →</a>
+          <a href="#enrol" class="btn btn-dark price-cta">Get Started →</a>
         </div>
       </div>
 
       <!-- Private · Twice -->
       <div class="price-card featured">
         <div class="price-card-header hdr-standard">
-          <div class="price-card-badge">Recommended</div>
           <div class="price-card-type">Private Classes · Online</div>
-          <div class="price-card-name">Twice Per Week</div>
         </div>
         <div class="price-card-body">
           <div class="price-freq">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Twice per week
           </div>
-          <div class="price-num">₦50,000</div>
+          <div class="price-num" data-ngn="55000">₦55,000</div>
           <div class="price-cadence">total per month</div>
           <ul class="price-features">
-            <li>8 sessions/month (30 min each)</li>
-            <li>Hand-picked tutor match</li>
-            <li>Priority support</li>
-            <li>Replacement guarantee</li>
-            <li>Monthly progress update</li>
+            <li>8 sessions/month</li>
           </ul>
-          <a href="mailto:hello@zeedeelearn.com" class="btn btn-gold price-cta">Enquire Now →</a>
+          <a href="#enrol" class="btn btn-gold price-cta">Get Started →</a>
         </div>
       </div>
 
@@ -1172,22 +1171,18 @@
       <div class="price-card">
         <div class="price-card-header hdr-group-1">
           <div class="price-card-type">Group Classes · Online</div>
-          <div class="price-card-name">Once Per Week</div>
         </div>
         <div class="price-card-body">
           <div class="price-freq">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Once per week
           </div>
-          <div class="price-num">₦25,000</div>
-          <div class="price-cadence">total per month</div>
+          <div class="price-num" data-ngn="25000">₦25,000</div>
+          <div class="price-cadence">per person, per month</div>
           <ul class="price-features">
-            <li>4 group sessions/month (30 min each)</li>
-            <li>Small group setting</li>
-            <li>WhatsApp support</li>
-            <li>Replacement guarantee</li>
+            <li>4 group sessions/month</li>
           </ul>
-          <a href="mailto:hello@zeedeelearn.com" class="btn btn-dark price-cta">Enquire Now →</a>
+          <a href="#enrol" class="btn btn-dark price-cta">Get Started →</a>
         </div>
       </div>
 
@@ -1195,27 +1190,23 @@
       <div class="price-card">
         <div class="price-card-header hdr-group-2">
           <div class="price-card-type">Group Classes · Online</div>
-          <div class="price-card-name">Twice Per Week</div>
         </div>
         <div class="price-card-body">
           <div class="price-freq">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Twice per week
           </div>
-          <div class="price-num">₦32,000</div>
-          <div class="price-cadence">total per month</div>
+          <div class="price-num" data-ngn="40000">₦40,000</div>
+          <div class="price-cadence">per person, per month</div>
           <ul class="price-features">
-            <li>8 group sessions/month (30 min each)</li>
-            <li>Small group setting</li>
-            <li>WhatsApp support</li>
-            <li>Replacement guarantee</li>
+            <li>8 group sessions/month</li>
           </ul>
-          <a href="mailto:hello@zeedeelearn.com" class="btn btn-dark price-cta">Enquire Now →</a>
+          <a href="#enrol" class="btn btn-dark price-cta">Get Started →</a>
         </div>
       </div>
 
     </div>
-    <p class="price-note">Payment accepted in NGN, GBP, CAD, and USD. Invoiced monthly.</p>
+    <p class="price-note">Invoiced monthly, prepaid. Payment accepted in NGN, GBP, CAD, and USD.</p>
   </div>
 </section>
 
@@ -1304,6 +1295,17 @@
           </div>
         </div>
 
+        <div class="fg">
+          <label class="flabel">Session type</label>
+          <select class="finput" id="sessionType" onchange="S.sessionType=this.value">
+            <option value="" disabled selected>Select a plan…</option>
+            <option value="private-once">Private · Once per week</option>
+            <option value="private-twice">Private · Twice per week</option>
+            <option value="group-once">Group · Once per week</option>
+            <option value="group-twice">Group · Twice per week</option>
+          </select>
+        </div>
+
         <div class="fnav">
           <button class="btn-back" onclick="go(2,1)">← Back</button>
           <button class="btn btn-gold" onclick="go(2,3)">Continue →</button>
@@ -1317,18 +1319,21 @@
 
         <div class="fg">
           <label class="flabel" id="learnerNameLabel">Child's first name</label>
-          <input class="finput" id="learnerName" placeholder="Their first name" />
+          <input class="finput" id="learnerName" placeholder="First name only" />
         </div>
 
         <div class="fg">
           <label class="flabel">Age</label>
-          <div class="choice-grid choice-grid-3" id="cg-age">
-            <button class="choice-btn compact" data-val="5-8"   onclick="pick('age','5-8',this,'cg-age')" style="text-align:center;">5–8</button>
-            <button class="choice-btn compact" data-val="9-12"  onclick="pick('age','9-12',this,'cg-age')" style="text-align:center;">9–12</button>
-            <button class="choice-btn compact" data-val="13-17" onclick="pick('age','13-17',this,'cg-age')" style="text-align:center;">13–17</button>
-            <button class="choice-btn compact" data-val="18-25" onclick="pick('age','18-25',this,'cg-age')" style="text-align:center;">18–25</button>
-            <button class="choice-btn compact" data-val="26-40" onclick="pick('age','26-40',this,'cg-age')" style="text-align:center;">26–40</button>
-            <button class="choice-btn compact" data-val="40+"   onclick="pick('age','40+',this,'cg-age')" style="text-align:center;">40+</button>
+          <div class="choice-grid choice-grid-3" id="cg-age-child">
+            <button class="choice-btn compact" data-val="5-8"   onclick="pick('age','5-8',this,'cg-age-child')" style="text-align:center;">5–8</button>
+            <button class="choice-btn compact" data-val="9-12"  onclick="pick('age','9-12',this,'cg-age-child')" style="text-align:center;">9–12</button>
+            <button class="choice-btn compact" data-val="13-17" onclick="pick('age','13-17',this,'cg-age-child')" style="text-align:center;">13–17</button>
+          </div>
+          <div class="choice-grid choice-grid-4" id="cg-age-adult" style="display:none;">
+            <button class="choice-btn compact" data-val="18-25" onclick="pick('age','18-25',this,'cg-age-adult')" style="text-align:center;">18–25</button>
+            <button class="choice-btn compact" data-val="26-33" onclick="pick('age','26-33',this,'cg-age-adult')" style="text-align:center;">26–33</button>
+            <button class="choice-btn compact" data-val="34-40" onclick="pick('age','34-40',this,'cg-age-adult')" style="text-align:center;">34–40</button>
+            <button class="choice-btn compact" data-val="40+"   onclick="pick('age','40+',this,'cg-age-adult')" style="text-align:center;">40+</button>
           </div>
         </div>
 
@@ -1404,11 +1409,11 @@
       <!-- STEP 5 — Contact -->
       <div class="fstep" id="fstep5">
         <div class="fstep-label">Step 5 of 5</div>
-        <div class="fstep-title">How do we reach you?</div>
+        <div class="fstep-title" id="step5title">How do we reach you?</div>
 
         <div class="fg">
-          <label class="flabel">Your full name</label>
-          <input class="finput" id="parentName" placeholder="Your name" />
+          <label class="flabel" id="contactNameLabel">Your full name</label>
+          <input class="finput" id="parentName" placeholder="Your full name" />
         </div>
 
         <div class="fg-row fg">
@@ -1424,7 +1429,7 @@
 
         <div class="fg">
           <label class="flabel">
-            How did you hear about Zeedee Learn?
+            How did you hear about Zidi Learn?
             <span style="font-weight:400;color:var(--muted)"> (optional)</span>
           </label>
           <select class="fselect" id="referral">
@@ -1653,14 +1658,13 @@
 <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
 <footer>
   <div class="footer-grid">
-    <div class="footer-logo">Zeedee <span>Learn</span></div>
+    <div class="footer-logo">Zidi <span>Learn</span></div>
 
     <div>
       <div class="footer-col-label">Navigate</div>
       <div class="footer-links">
         <a href="#subjects">Subjects</a>
         <a href="#pricing">Pricing</a>
-        <a href="mailto:hello@zeedeelearn.com">Be a tutor</a>
       </div>
     </div>
 
@@ -1678,7 +1682,7 @@
   </div>
 
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Zeedee Learn. All rights reserved.</div>
+    <div class="footer-copy">© 2026 Zidi Learn. All rights reserved.</div>
     <div class="footer-trust">
       <span class="footer-trust-item">Vetted tutors</span>
       <span class="footer-trust-item">Safe online sessions</span>
@@ -1698,10 +1702,10 @@
     <h2 class="policy-modal-title">Privacy Policy</h2>
     <p class="policy-modal-date">Last updated: 1 June 2026</p>
     <div class="policy-modal-body">
-      <p>Zeedee Learn ("we", "us", "our") is committed to protecting your personal data. This policy explains what we collect, why we collect it, and your rights under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
+      <p>Zidi Learn ("we", "us", "our") is committed to protecting your personal data. This policy explains what we collect, why we collect it, and your rights under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.</p>
 
       <h3>1. Who We Are</h3>
-      <p>Zeedee Learn is an online tutoring marketplace connecting families in the diaspora with vetted tutors. Our registered business address is available on request by emailing hello@zeedeelearn.com.</p>
+      <p>Zidi Learn is an online tutoring marketplace connecting families in the diaspora with vetted tutors. Our registered business address is available on request by emailing hello@zeedeelearn.com.</p>
 
       <h3>2. What Personal Data We Collect</h3>
       <p>We collect the following categories of data:</p>
@@ -1758,10 +1762,10 @@
     <h2 class="policy-modal-title">Terms &amp; Conditions</h2>
     <p class="policy-modal-date">Last updated: 1 June 2026</p>
     <div class="policy-modal-body">
-      <p>These Terms &amp; Conditions govern your use of the Zeedee Learn tutoring service. By enquiring, enrolling, or applying as a tutor, you agree to these terms.</p>
+      <p>These Terms &amp; Conditions govern your use of the Zidi Learn tutoring service. By enquiring, enrolling, or applying as a tutor, you agree to these terms.</p>
 
       <h3>1. The Service</h3>
-      <p>Zeedee Learn is a matching and coordination service. We connect parents and learners with independent tutors and facilitate scheduling. Tutors are not employees of Zeedee Learn. Sessions are delivered via Zoom or Google Meet. We do not host sessions on our own platform.</p>
+      <p>Zidi Learn is a matching and coordination service. We connect parents and learners with independent tutors and facilitate scheduling. Tutors are not employees of Zidi Learn. Sessions are delivered via Zoom or Google Meet. We do not host sessions on our own platform.</p>
 
       <h3>2. Enrolment</h3>
       <p>Enrolment is confirmed once we have matched you with a tutor, agreed a session schedule, and received your first monthly payment. Enrolment is personal and non-transferable.</p>
@@ -1779,10 +1783,10 @@
       <p>We make every effort to match you with a suitable tutor based on the information you provide. If you are not happy with your tutor within the first two sessions, contact us and we will rematch you at no additional cost.</p>
 
       <h3>7. Liability</h3>
-      <p>Zeedee Learn acts as an intermediary and is not liable for the content of individual sessions, the conduct of independent tutors, or technical failures on third-party video platforms (Zoom, Google Meet). Our total liability in any circumstance is limited to the fees paid in the most recent calendar month.</p>
+      <p>Zidi Learn acts as an intermediary and is not liable for the content of individual sessions, the conduct of independent tutors, or technical failures on third-party video platforms (Zoom, Google Meet). Our total liability in any circumstance is limited to the fees paid in the most recent calendar month.</p>
 
       <h3>8. Intellectual Property</h3>
-      <p>All content on this website — including copy, design, and structure — is the property of Zeedee Learn and may not be reproduced without written consent.</p>
+      <p>All content on this website — including copy, design, and structure — is the property of Zidi Learn and may not be reproduced without written consent.</p>
 
       <h3>9. Governing Law</h3>
       <p>These Terms are governed by the laws of England and Wales. Any dispute shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
@@ -1800,7 +1804,7 @@
     <h2 class="policy-modal-title">Fair Play Policy</h2>
     <p class="policy-modal-date">Last updated: 1 June 2026</p>
     <div class="policy-modal-body">
-      <p>Zeedee Learn is built on respect, trust, and a genuine commitment to learning. This policy sets out the standards we expect from everyone — tutors, learners, and parents alike.</p>
+      <p>Zidi Learn is built on respect, trust, and a genuine commitment to learning. This policy sets out the standards we expect from everyone — tutors, learners, and parents alike.</p>
 
       <h3>For Tutors</h3>
       <ul>
@@ -1808,7 +1812,7 @@
         <li>Deliver sessions in a professional, focused, and age-appropriate manner.</li>
         <li>Maintain appropriate professional boundaries with learners at all times.</li>
         <li>Do not share learner details, contact information, or session content with third parties.</li>
-        <li>Do not attempt to solicit learners for private arrangements that bypass Zeedee Learn.</li>
+        <li>Do not attempt to solicit learners for private arrangements that bypass Zidi Learn.</li>
         <li>Disclose any conflict of interest or prior relationship with a learner to us immediately.</li>
         <li>Complete any requested DBS or background check before sessions begin with learners under 18.</li>
       </ul>
@@ -1818,7 +1822,7 @@
         <li>Attend or arrange for the learner to attend each scheduled session. More than two no-shows without notice may result in session forfeiture for that period.</li>
         <li>Treat tutors with courtesy and respect. Sessions are a professional engagement.</li>
         <li>Provide honest and accurate information when enquiring, so we can make the best match.</li>
-        <li>Do not attempt to contact tutors outside the channel we establish for the session, or arrange direct private sessions that bypass Zeedee Learn.</li>
+        <li>Do not attempt to contact tutors outside the channel we establish for the session, or arrange direct private sessions that bypass Zidi Learn.</li>
         <li>Report any concern about a tutor's conduct to hello@zeedeelearn.com promptly.</li>
       </ul>
 
@@ -1844,7 +1848,7 @@
     <h2 class="policy-modal-title">Refund Policy</h2>
     <p class="policy-modal-date">Last updated: 1 June 2026</p>
     <div class="policy-modal-body">
-      <p>We want you to feel confident when you commit to Zeedee Learn. This policy sets out clearly when a refund applies.</p>
+      <p>We want you to feel confident when you commit to Zidi Learn. This policy sets out clearly when a refund applies.</p>
 
       <h3>Sessions Cancelled by Your Tutor</h3>
       <p>If your tutor cancels a session with less than 24 hours' notice and cannot offer a reschedule in the same billing period, we will credit the value of that session to your next invoice, or issue a pro-rata refund on request.</p>
@@ -1874,7 +1878,7 @@
     <h2 class="policy-modal-title">Child Safety Policy</h2>
     <p class="policy-modal-date">Last updated: 1 June 2026</p>
     <div class="policy-modal-body">
-      <p>The safety and wellbeing of children using Zeedee Learn is our highest priority. This policy outlines our safeguarding approach for all sessions involving learners under the age of 18.</p>
+      <p>The safety and wellbeing of children using Zidi Learn is our highest priority. This policy outlines our safeguarding approach for all sessions involving learners under the age of 18.</p>
 
       <h3>Tutor Vetting</h3>
       <p>All tutors working with learners under 18 are required to:</p>
@@ -1900,7 +1904,7 @@
       <p>If a parent, learner, or tutor has a safeguarding concern — including anything that suggests a child may be at risk of harm — they should contact us immediately at hello@zeedeelearn.com. We will take all disclosures seriously. Where a concern suggests a child is at immediate risk of harm, we will refer the matter to statutory authorities (e.g. local children's services or the police) without delay and regardless of any request for confidentiality.</p>
 
       <h3>Designated Safeguarding Lead</h3>
-      <p>Zeedee Learn has a designated safeguarding lead who is responsible for managing all child protection concerns. Contact details are available on request at hello@zeedeelearn.com.</p>
+      <p>Zidi Learn has a designated safeguarding lead who is responsible for managing all child protection concerns. Contact details are available on request at hello@zeedeelearn.com.</p>
 
       <h3>Policy Review</h3>
       <p>This policy is reviewed annually and updated in line with changes to statutory guidance, including the Department for Education's Keeping Children Safe in Education guidance and relevant Ofsted frameworks where applicable.</p>
@@ -2017,6 +2021,27 @@
     document.getElementById('enrol').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+  // ── Currency toggle ──
+  const RATES = { NGN: 1, USD: 1/1400, GBP: 1/1900, CAD: 1/1000 };
+  const SYMBOLS = { NGN: '₦', USD: '$', GBP: '£', CAD: 'CA$' };
+  let activeCur = 'NGN';
+
+  function setCurrency(cur, btn) {
+    activeCur = cur;
+    document.querySelectorAll('#currencyToggle .cur-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.price-num[data-ngn]').forEach(el => {
+      const ngn = parseInt(el.dataset.ngn);
+      const converted = Math.round(ngn * RATES[cur]);
+      const sym = SYMBOLS[cur];
+      if (cur === 'NGN') {
+        el.textContent = sym + converted.toLocaleString();
+      } else {
+        el.textContent = sym + converted.toLocaleString();
+      }
+    });
+  }
+
   // ── Choice button ──
   function pick(key, val, btn, gridId) {
     document.querySelectorAll('#' + gridId + ' .choice-btn').forEach(b => b.classList.remove('sel'));
@@ -2025,8 +2050,12 @@
     // Personalise step 3 heading for adult learners
     if (key === 'learnerType') {
       const isAdult = val === 'adult';
-      document.getElementById('step3title').textContent   = isAdult ? 'About you' : 'About your child';
-      document.getElementById('learnerNameLabel').textContent = isAdult ? 'Your first name' : 'Child\'s first name';
+      document.getElementById('step3title').textContent = isAdult ? 'About you' : 'About your child';
+      document.getElementById('learnerNameLabel').textContent = isAdult ? 'Preferred first name' : 'Child\'s first name';
+      document.getElementById('cg-age-child').style.display = isAdult ? 'none' : 'grid';
+      document.getElementById('cg-age-adult').style.display = isAdult ? 'grid' : 'none';
+      document.getElementById('step5title').textContent = isAdult ? 'How do we reach you?' : 'Contact information for parent or guardian';
+      document.getElementById('contactNameLabel').textContent = isAdult ? 'Your full name' : 'Parent / guardian\'s full name';
     }
   }
 
@@ -2148,7 +2177,7 @@
     T.notes = document.getElementById('tnotes').value.trim();
 
     // ── WIRE UP: same as student form, use a separate Formspree form ID or Airtable table ──
-    console.log('[ZeeDeeLearn] Tutor application:', T);
+    console.log('[ZidiLearn] Tutor application:', T);
 
     document.getElementById('tformProg').style.display = 'none';
     document.querySelectorAll('#tutor-cta .fstep').forEach(el => el.style.display = 'none');
