@@ -935,6 +935,30 @@
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
     }
 
+    /* ===== TIME SLOTS ===== */
+    .timeslot-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+    .slot-btn {
+      padding: 0.5rem 0.25rem;
+      border-radius: var(--r-sm);
+      border: 1.5px solid rgba(14,22,35,0.15);
+      background: var(--white);
+      font-family: var(--ff-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .slot-btn:hover:not(.slot-unavail) { border-color: var(--gold); color: var(--gold); }
+    .slot-btn.sel { background: var(--gold); border-color: var(--gold); color: var(--midnight); }
+    .slot-btn.slot-unavail { opacity: 0.35; cursor: not-allowed; color: var(--muted); }
+    @media (max-width: 500px) { .timeslot-grid { grid-template-columns: repeat(3, 1fr); } }
+
     /* ===== POLICY MODALS ===== */
     .policy-modal {
       display: none;
@@ -1000,18 +1024,6 @@
 <body>
 
 <!-- ═══════════════════════════════ TICKER ═══════════════════════════════ -->
-<div class="ticker-bar" aria-hidden="true">
-  <div class="ticker-track">
-    <span>Yoruba · Igbo · Piano · African Dishes · Chess · and more coming soon</span>
-    <span>One-on-one online sessions with expert tutors</span>
-    <span>Sessions via Zoom or Google Meet · Your timezone, your schedule</span>
-    <span>Zidi Learn · Fill the form and we'll be in touch within 24 hours</span>
-    <span>Yoruba · Igbo · Piano · African Dishes · Chess · and more coming soon</span>
-    <span>One-on-one online sessions with expert tutors</span>
-    <span>Sessions via Zoom or Google Meet · Your timezone, your schedule</span>
-    <span>Zidi Learn · Fill the form and we'll be in touch within 24 hours</span>
-  </div>
-</div>
 
 <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
 <nav>
@@ -1062,51 +1074,29 @@
 <section class="section-pad" id="subjects">
   <div class="container">
     <span class="eyebrow">What you can learn</span>
-    <h2 class="section-heading">Choose a subject.<br>We'll find your tutor.</h2>
-    <p class="section-body">We're starting with heritage languages. More subjects are on the way.</p>
+    <h2 class="section-heading">Choose a subject.</h2>
 
     <div class="subjects-grid">
 
-      <div class="subject-card live">
+      <a class="subject-card live" href="#enrol" onclick="preSelectSubject('yoruba')" style="cursor:pointer;text-decoration:none;color:inherit;display:block;">
         <span class="sbadge sbadge-live">Available now</span>
         <span class="subject-emoji">🗣️</span>
         <h3>Yoruba</h3>
         <p class="subject-desc">One of the most widely spoken languages in Africa, with over 45 million native speakers.</p>
-      </div>
+      </a>
 
-      <div class="subject-card live">
+      <a class="subject-card live" href="#enrol" onclick="preSelectSubject('igbo')" style="cursor:pointer;text-decoration:none;color:inherit;display:block;">
         <span class="sbadge sbadge-live">Available now</span>
         <span class="subject-emoji">💬</span>
         <h3>Igbo</h3>
         <p class="subject-desc">One of Nigeria's major languages, with speakers across Southeast Nigeria.</p>
-      </div>
+      </a>
 
       <div class="subject-card soon">
-        <span class="sbadge sbadge-soon">Coming soon</span>
+        <span class="sbadge sbadge-soon">More coming soon</span>
         <span class="subject-emoji">🌍</span>
-        <h3>More languages</h3>
-        <p class="subject-desc">Hausa, French, Pidgin, and others — based on what learners say they need.</p>
-      </div>
-
-      <div class="subject-card soon">
-        <span class="sbadge sbadge-soon">Coming soon</span>
-        <span class="subject-emoji">♟️</span>
-        <h3>Chess</h3>
-        <p class="subject-desc">Expert coaching for children and adults, from first moves to tournament strategy.</p>
-      </div>
-
-      <div class="subject-card soon">
-        <span class="sbadge sbadge-soon">Coming soon</span>
-        <span class="subject-emoji">🎹</span>
-        <h3>Piano</h3>
-        <p class="subject-desc">Classical and contemporary piano lessons for all levels.</p>
-      </div>
-
-      <div class="subject-card soon">
-        <span class="sbadge sbadge-soon">Coming soon</span>
-        <span class="subject-emoji">🍲</span>
-        <h3>African Dishes</h3>
-        <p class="subject-desc">Learn to cook jollof, egusi, pounded yam, and more.</p>
+        <h3>More subjects</h3>
+        <p class="subject-desc">Chess, Piano, African Dishes, Hausa, French, and more — based on what learners need.</p>
       </div>
 
     </div>
@@ -1214,9 +1204,9 @@
 <!-- ═══════════════════════════════ FORM ═══════════════════════════════ -->
 <section class="section-pad form-bg" id="enrol">
   <div class="container">
-    <span class="eyebrow">Enrol</span>
-    <h2 class="section-heading">Ready? Let's find your tutor.</h2>
-    <p class="section-body">Fill in the details below and we'll be in touch within 24 hours to confirm your match and first session.</p>
+    <span class="eyebrow">Enroll</span>
+    <h2 class="section-heading">Ready? Let's get started.</h2>
+    <p class="section-body">Fill in the details below and we'll be in touch.</p>
 
     <div class="form-box">
 
@@ -1241,8 +1231,8 @@
           </button>
           <button class="choice-btn" data-val="adult" onclick="pick('learnerType','adult',this,'cg-learnerType')">
             <span class="c-emoji">🧑🏾‍💼</span>
-            <span class="c-label">Myself (adult)</span>
-            <span class="c-sub">I want to learn for myself</span>
+            <span class="c-label">Myself</span>
+            <span class="c-sub">I'm the one learning</span>
           </button>
         </div>
         <div class="fnav">
@@ -1297,7 +1287,7 @@
 
         <div class="fg">
           <label class="flabel">Session type</label>
-          <select class="finput" id="sessionType" onchange="S.sessionType=this.value">
+          <select class="finput" id="sessionType" onchange="onSessionTypeChange(this.value)">
             <option value="" disabled selected>Select a plan…</option>
             <option value="private-once">Private · Once per week</option>
             <option value="private-twice">Private · Twice per week</option>
@@ -1305,6 +1295,19 @@
             <option value="group-twice">Group · Twice per week</option>
           </select>
         </div>
+
+        <!-- Group fields — shown only when group session selected -->
+        <div class="fg" id="group-size-wrap" style="display:none;">
+          <label class="flabel">How many people in your group?</label>
+          <div class="choice-grid choice-grid-3" id="cg-groupsize">
+            <button class="choice-btn compact" data-val="2" onclick="pick('groupSize','2',this,'cg-groupsize');renderGroupNames(2)" style="text-align:center;">2</button>
+            <button class="choice-btn compact" data-val="3" onclick="pick('groupSize','3',this,'cg-groupsize');renderGroupNames(3)" style="text-align:center;">3</button>
+            <button class="choice-btn compact" data-val="4" onclick="pick('groupSize','4',this,'cg-groupsize');renderGroupNames(4)" style="text-align:center;">4</button>
+          </div>
+          <p style="font-size:0.78rem;color:var(--muted);margin-top:0.4rem;">Groups are 2–4 people who all know each other. Pricing is per person.</p>
+        </div>
+
+        <div id="group-names-wrap" style="display:none;"></div>
 
         <div class="fnav">
           <button class="btn-back" onclick="go(2,1)">← Back</button>
@@ -1317,12 +1320,12 @@
         <div class="fstep-label">Step 3 of 5</div>
         <div class="fstep-title" id="step3title">About your child</div>
 
-        <div class="fg">
+        <div class="fg" id="learnerNameWrap">
           <label class="flabel" id="learnerNameLabel">Child's first name</label>
           <input class="finput" id="learnerName" placeholder="First name only" />
         </div>
 
-        <div class="fg">
+        <div class="fg" id="learnerAgeWrap">
           <label class="flabel">Age</label>
           <div class="choice-grid choice-grid-3" id="cg-age-child">
             <button class="choice-btn compact" data-val="5-8"   onclick="pick('age','5-8',this,'cg-age-child')" style="text-align:center;">5–8</button>
@@ -1370,34 +1373,24 @@
         </div>
 
         <div class="fg">
-          <label class="flabel">Time of day</label>
-          <div class="choice-grid choice-grid-3" id="cg-time">
-            <button class="choice-btn compact" data-val="morning" onclick="pick('time','morning',this,'cg-time')" style="text-align:center;">
-              <span class="c-label">Morning</span><span class="c-sub" style="display:block;">6am–12pm</span>
-            </button>
-            <button class="choice-btn compact" data-val="afternoon" onclick="pick('time','afternoon',this,'cg-time')" style="text-align:center;">
-              <span class="c-label">Afternoon</span><span class="c-sub" style="display:block;">12pm–5pm</span>
-            </button>
-            <button class="choice-btn compact" data-val="evening" onclick="pick('time','evening',this,'cg-time')" style="text-align:center;">
-              <span class="c-label">Evening</span><span class="c-sub" style="display:block;">5pm–9pm</span>
-            </button>
-          </div>
+          <label class="flabel">Your timezone</label>
+          <select class="fselect" id="timezone" onchange="renderTimeSlots()">
+            <option value="">Select your timezone</option>
+            <option value="0">GMT / London (UK) — UTC+0</option>
+            <option value="1">BST / London Summer (UK) — UTC+1</option>
+            <option value="-5">Eastern Time — ET (US/Canada) — UTC−5</option>
+            <option value="-6">Central Time — CT (US/Canada) — UTC−6</option>
+            <option value="-7">Mountain Time — MT (US/Canada) — UTC−7</option>
+            <option value="-8">Pacific Time — PT (US/Canada) — UTC−8</option>
+            <option value="1">West Africa Time — WAT (Nigeria) — UTC+1</option>
+            <option value="1">Central European Time — CET — UTC+1</option>
+          </select>
         </div>
 
-        <div class="fg">
-          <label class="flabel">Your timezone</label>
-          <select class="fselect" id="timezone">
-            <option value="">Select your timezone</option>
-            <option>GMT / London (UK)</option>
-            <option>BST / London Summer (UK)</option>
-            <option>Eastern Time — ET (US/Canada)</option>
-            <option>Central Time — CT (US/Canada)</option>
-            <option>Mountain Time — MT (US/Canada)</option>
-            <option>Pacific Time — PT (US/Canada)</option>
-            <option>West Africa Time — WAT (Nigeria)</option>
-            <option>Central European Time — CET</option>
-            <option>Other</option>
-          </select>
+        <div class="fg" id="timeslot-wrap" style="display:none;">
+          <label class="flabel">Preferred time <span style="font-weight:400;color:var(--muted)">(select all that work)</span></label>
+          <p class="timeslot-note" id="timeslot-note" style="font-size:0.8rem;color:var(--muted);margin-bottom:0.75rem;"></p>
+          <div class="timeslot-grid" id="timeslot-grid"></div>
         </div>
 
         <div class="fnav">
@@ -1453,9 +1446,9 @@
         <div class="success-ring">
           <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
-        <div class="success-title">You're in. We'll be in touch.</div>
+        <div class="success-title">Form submitted. We will be in touch.</div>
         <p class="success-body">
-          Expect a WhatsApp message or email from us within 24 hours. We'll confirm your tutor, agree a first session time, and take care of everything from there.
+          We'll review your details and reach out via email or WhatsApp to confirm next steps.
         </p>
       </div>
 
@@ -2000,19 +1993,45 @@
         alert('Please describe what you\'d like to learn.'); return;
       }
       if (!S.level) { alert('Please choose a level.'); return; }
+      if (!S.sessionType) { alert('Please choose a session type.'); return; }
       S.subjectDetail = S.subject === 'other' ? document.getElementById('subjectOther').value.trim() : S.subject;
+      // Show/hide name+age in step 3 depending on session type
+      const isGrp = S.sessionType && S.sessionType.startsWith('group');
+      document.getElementById('learnerNameWrap').style.display = isGrp ? 'none' : 'block';
+      document.getElementById('learnerAgeWrap').style.display = isGrp ? 'none' : 'block';
+      if (isGrp) {
+        document.getElementById('step3title').textContent = 'A bit more detail';
+      }
+      // Capture group names if applicable
+      if (isGrp) {
+        if (!S.groupSize) { alert('Please choose your group size.'); return; }
+        const nameInputs = document.querySelectorAll('#group-names-wrap .group-name-input');
+        const ageSelects = document.querySelectorAll('#group-names-wrap .group-age-select');
+        const groupMembers = [];
+        for (let i = 0; i < nameInputs.length; i++) {
+          const n = nameInputs[i].value.trim();
+          if (!n) { alert('Please enter all group member names.'); return; }
+          const age = ageSelects[i] ? ageSelects[i].value : '';
+          groupMembers.push(age ? n + ' (age ' + age + ')' : n);
+        }
+        S.groupNames = groupMembers.join(', ');
+      }
     }
     if (from === 3) {
-      const name = document.getElementById('learnerName').value.trim();
-      if (!name) { alert('Please enter the learner\'s name.'); return; }
-      S.learnerName = name;
-      S.age = S.age || '';
+      const isGroup = S.sessionType && S.sessionType.startsWith('group');
+      if (!isGroup) {
+        const name = document.getElementById('learnerName').value.trim();
+        if (!name) { alert('Please enter the learner\'s name.'); return; }
+        S.learnerName = name;
+        S.age = S.age || '';
+      }
       S.goal = document.getElementById('goal').value.trim();
     }
     if (from === 4) {
       if (!document.getElementById('timezone').value) { alert('Please select your timezone.'); return; }
       S.timezone = document.getElementById('timezone').value;
-      S.days = Array.from(days).join(', ');
+      const selSlots = Array.from(document.querySelectorAll('#timeslot-grid .slot-btn.sel')).map(b => b.dataset.label);
+      S.preferredSlots = selSlots.join(', ');
     }
 
     document.getElementById('fstep' + from).classList.remove('active');
@@ -2063,6 +2082,125 @@
   function toggleOther() {
     const show = S.subject === 'other';
     document.getElementById('otherField').style.display = show ? 'block' : 'none';
+  }
+
+  // ── Session type change ──
+  function onSessionTypeChange(val) {
+    S.sessionType = val;
+    const isGroup = val && val.startsWith('group');
+    document.getElementById('group-size-wrap').style.display = isGroup ? 'block' : 'none';
+    if (!isGroup) {
+      document.getElementById('group-names-wrap').style.display = 'none';
+      document.getElementById('group-names-wrap').innerHTML = '';
+      S.groupSize = null;
+      S.groupNames = '';
+      // Clear group size selection
+      document.querySelectorAll('#cg-groupsize .choice-btn').forEach(b => b.classList.remove('sel'));
+    }
+  }
+
+  // ── Group name fields ──
+  function renderGroupNames(size) {
+    S.groupSize = size;
+    const wrap = document.getElementById('group-names-wrap');
+    wrap.innerHTML = '';
+    wrap.style.display = 'block';
+    for (let i = 1; i <= size; i++) {
+      const div = document.createElement('div');
+      div.className = 'fg';
+      div.style.marginTop = '0.6rem';
+      div.innerHTML =
+        '<label class="flabel">Person ' + i + '</label>' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">' +
+          '<input class="finput group-name-input" placeholder="First name" />' +
+          '<select class="finput group-age-select">' +
+            '<option value="">Age range</option>' +
+            '<option value="5-8">5–8</option>' +
+            '<option value="9-12">9–12</option>' +
+            '<option value="13-17">13–17</option>' +
+            '<option value="18-25">18–25</option>' +
+            '<option value="26-33">26–33</option>' +
+            '<option value="34-40">34–40</option>' +
+            '<option value="40+">40+</option>' +
+          '</select>' +
+        '</div>';
+      wrap.appendChild(div);
+    }
+  }
+
+  // ── Pre-select subject from subjects section ──
+  function preSelectSubject(subject) {
+    // Pre-select the button in step 2's subject grid
+    document.querySelectorAll('#cg-subject .choice-btn').forEach(b => b.classList.remove('sel'));
+    const btn = document.querySelector('#cg-subject .choice-btn[data-val="' + subject + '"]');
+    if (btn) {
+      btn.classList.add('sel');
+      S.subject = subject;
+      // Hide other field if it was open
+      document.getElementById('otherField').style.display = 'none';
+    }
+  }
+
+  // ── Render time slots ──
+  function renderTimeSlots() {
+    const tzSelect = document.getElementById('timezone');
+    const utcOffset = parseFloat(tzSelect.value);
+    if (isNaN(utcOffset)) return;
+
+    const wrap = document.getElementById('timeslot-wrap');
+    const grid = document.getElementById('timeslot-grid');
+    const note = document.getElementById('timeslot-note');
+    grid.innerHTML = '';
+    wrap.style.display = 'block';
+
+    // Tutor available 8am–10pm WAT (WAT = UTC+1)
+    // WAT hours: 8 to 22 (inclusive start, so 8,9,...,21 = 14 slots)
+    const watStart = 8;
+    const watEnd = 22; // last slot starts at 21 (9pm WAT)
+
+    // Offset between WAT and user timezone:
+    // watHour = localHour + (1 - utcOffset)
+    // localHour = watHour - 1 + utcOffset
+    const diff = utcOffset - 1; // difference: local = WAT + diff
+
+    // Determine timezone label for note
+    const tzLabel = tzSelect.options[tzSelect.selectedIndex].text;
+    note.textContent = 'Times shown in your local time (' + tzLabel.split('—')[0].trim() + ').';
+
+    for (let watH = watStart; watH < watEnd; watH++) {
+      const localH = watH + diff;
+      // Format WAT time label
+      const watAMPM = watH < 12 ? 'am' : 'pm';
+      const watDisp = (watH > 12 ? watH - 12 : watH === 0 ? 12 : watH) + watAMPM;
+      // Format local time label
+      const localDisp = formatHour(localH);
+      const label = localDisp + (Math.round(diff) !== 0 ? ' (' + watDisp + ' WAT)' : '');
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'slot-btn';
+      btn.dataset.label = label;
+      btn.dataset.wat = watDisp;
+      btn.textContent = localDisp;
+
+      // Mark unavailable if outside 0-23 local
+      if (localH < 0 || localH >= 24) {
+        btn.classList.add('slot-unavail');
+        btn.disabled = true;
+        btn.title = 'Outside your day';
+      } else {
+        btn.onclick = function() { btn.classList.toggle('sel'); };
+      }
+      grid.appendChild(btn);
+    }
+  }
+
+  function formatHour(h) {
+    // Handles values outside 0-23 gracefully for display
+    const norm = ((h % 24) + 24) % 24;
+    const period = norm < 12 ? 'am' : 'pm';
+    const disp = norm === 0 ? 12 : norm > 12 ? norm - 12 : norm;
+    return disp + period;
   }
 
   // ── Day toggle ──
